@@ -7,3 +7,10 @@ usage_model = ''
 compatibility_flags = []
 workers_dev = true
 compatibility_date = "2022-01-20"
+
+[env.production]
+# The ID of the domain to deploying to
+zone_id = "bd02b465ee5fde2956a817c083180145"
+
+# The route pattern your Workers application will be served at
+route = "api.toaster.dev"

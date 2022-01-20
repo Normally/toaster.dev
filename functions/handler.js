@@ -23,7 +23,7 @@ let proxy = {
     return new Date(faker.date.between(start, end)).toLocaleTimeString()
   },
   phone(format = 'xxxxx xxxxxx') {
-    return format.replace(/(x)/g, function (value) {
+    return format.replace(/(x)/g, function(value) {
       return Math.round(Math.random() * 9)
     })
   },
@@ -46,7 +46,7 @@ function fake(str, user) {
   if (str === '{user}') {
     return user
   }
-  return str.replace(/{(.[^{}]+)}/g, function (value) {
+  return str.replace(/{(.[^{}]+)}/g, function(value) {
     let matches = arguments[1].match(/(["'])(?:(?=(\\?))\2.)*?\1|([^\s])+/g)
     let split = matches[0].split('.')
     let functionName = split[0]

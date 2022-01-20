@@ -102,7 +102,11 @@ Toaster supports multiple [localities](http://marak.github.io/faker.js/#toc9__an
 
 ## About
 
-Built by [Nic Mulvaney](https://nicmulvaney.com) at [Normally](https://normally.com). Toaster is built on [faker.js](https://github.com/Marak/faker.js) and hosted on [Vercel](https://vercel.com) - Free to use, no signup, no authentication.
+Built by [Nic Mulvaney](https://nicmulvaney.com) at [Normally](https://normally.com). 
+
+Source available on [GitHub](https://github.com/normally/toaster.dev) 
+
+Free to use, no signup, no authentication.
 
 
 

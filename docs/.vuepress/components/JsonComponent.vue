@@ -74,7 +74,8 @@ export default {
       viewSample: false,
       result: null,
       editorOption: {
-        theme: 'material'
+        theme: 'material',
+        lineWrapping: true
       },
       examples,
       loading: true
@@ -82,11 +83,17 @@ export default {
   },
   methods: {
     showSampleCode(value) {
-      this.viewSample = value
-      this.editor.setOption('readOnly', value ? 'nocursor' : false)
-      // this.view = value ? value : 'empty'
+      try {
+        let repaired = JSON.parse(jsonrepair(this.liveCode))
+        this.error = false
+        this.viewSample = value
+        this.editor.setOption('readOnly', value ? true : false)
+      } catch (error) {
+        this.error = error.message
+        this.viewSample = false
+        return
+      }
     },
-
     async send() {
       this.error = ''
       let repaired = ''
@@ -103,9 +110,7 @@ export default {
         this.error = error.message
         return
       }
-      let enpoint = this.dev
-        ? 'http://localhost:3000/api'
-        : 'https://api.toaster.dev'
+      let enpoint = 'https://api.toaster.dev'
       this.loading = true
       let result = await axios.post(enpoint, repaired)
       this.loading = false
@@ -124,18 +129,18 @@ export default {
       return process.env.NODE_ENV === 'development'
     },
     example() {
-      let pretty = stringifyObject(JSON.parse(jsonrepair(this.liveCode)), {
+      let clean = JSON.parse(jsonrepair(this.liveCode))
+      let pretty = stringifyObject(clean, {
         indent: '  ',
         singleQuotes: false
       })
-      // console.log(this.examples, value)
       if (this.view !== 'cURL') {
         return beautify(this.examples[this.view](pretty), {
           indent_size: 2,
           space_in_empty_paren: true
         })
       } else {
-        return this.examples[this.view](pretty)
+        return this.examples[this.view](JSON.stringify(clean))
       }
     },
     editor() {
