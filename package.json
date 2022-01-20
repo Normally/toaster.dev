@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build": "cd docs && yarn build"
+  },
+  "dependencies": {}
+}

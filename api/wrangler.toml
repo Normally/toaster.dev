@@ -1,0 +1,9 @@
+name = "toaster-api"
+account_id = "02430aa49e05351275a9122260cea5e4"
+type = "webpack"
+route = ''
+zone_id = ''
+usage_model = ''
+compatibility_flags = []
+workers_dev = true
+compatibility_date = "2022-01-20"
