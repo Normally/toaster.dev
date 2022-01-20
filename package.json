@@ -1,6 +1,24 @@
 {
-  "scripts": {
-    "build": "cd docs && yarn build"
+  "name": "toaster.dev",
+  "version": "0.0.1",
+  "description": "A free JSON placeholder API - bring your own schema",
+  "main": "index.js",
+  "authors": {
+    "name": "Nic Mulvaney",
+    "email": "nic@nicmulvaney.com"
   },
-  "dependencies": {}
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "axios": "^0.21.1",
+    "js-beautify": "^1.13.13",
+    "jsonrepair": "^2.2.0",
+    "stringify-object": "^3.3.0",
+    "vue-codemirror-lite": "^1.0.4",
+    "vuepress": "^1.8.2"
+  }
 }
