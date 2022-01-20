@@ -9,6 +9,7 @@ module.exports = {
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   description: 'A free JSON placeholder API',
+  dest: 'docs/.vuepress/dist',
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
