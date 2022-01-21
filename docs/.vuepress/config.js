@@ -4,11 +4,11 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Toaster.',
+  title: 'Toaster',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  description: 'JSON placeholder API',
+  description: 'A free JSON placeholder API',
   dest: 'docs/.vuepress/dist',
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -28,6 +28,56 @@ module.exports = {
         name: 'viewport',
         content:
           'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+      }
+    ],
+
+    [
+      'meta',
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'A free JSON placeholder API'
+      }
+    ],
+    ['meta', { hid: 'og-type', property: 'og:type', content: 'website' }],
+    [
+      'meta',
+      {
+        hid: 'og-title',
+        property: 'og:title',
+        content: 'Toaster'
+      }
+    ],
+    [
+      'meta',
+      {
+        hid: 'og-desc',
+        property: 'og:description',
+        content: 'A free JSON placeholder API'
+      }
+    ],
+    [
+      'meta',
+      {
+        hid: 'og-image',
+        property: 'og:image',
+        content: 'https://toaster.dev/toaster.dev-social.jpg'
+      }
+    ],
+    [
+      'meta',
+      {
+        hid: 'og-url',
+        property: 'og:url',
+        content: 'https://toaster.dev/'
+      }
+    ],
+    [
+      'meta',
+      {
+        hid: 'og-site_name',
+        property: 'og:site_name',
+        content: 'Toaster'
       }
     ]
   ],
