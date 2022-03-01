@@ -1,8 +1,6 @@
 const handler = require('./handler')
 
 function handleOptions(request) {
-  // Make sure the necessary headers are present
-  // for this to be a valid pre-flight request
   let headers = request.headers
   if (
     headers.get('Origin') !== null &&
@@ -13,8 +11,6 @@ function handleOptions(request) {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET,HEAD,POST,OPTIONS',
       'Access-Control-Max-Age': '86400',
-      // Allow all future content Request headers to go back to browser
-      // such as Authorization (Bearer) or X-Client-Name-Version
       'Access-Control-Allow-Headers': request.headers.get(
         'Access-Control-Request-Headers'
       )
@@ -23,8 +19,6 @@ function handleOptions(request) {
       headers: respHeaders
     })
   } else {
-    // Handle standard OPTIONS request.
-    // If you want to allow other HTTP Methods, you can do that here.
     return new Response(null, {
       headers: {
         Allow: 'GET, HEAD, POST, OPTIONS'
@@ -32,11 +26,23 @@ function handleOptions(request) {
     })
   }
 }
+
 async function handleRequest(request) {
   if (request.method === 'OPTIONS') {
     return handleOptions(request)
   } else {
-    const body = await readRequestBody(request)
+    let body = await readRequestBody(request)
+
+    if (!body) {
+      const url = new URL(request.url)
+      const { searchParams } = url
+      body = searchParams.get('data')
+      if (body) {
+        body = JSON.parse(body || {})
+      } else {
+        body = Object.fromEntries(searchParams)
+      }
+    }
     const result = await handler(body)
     return new Response(JSON.stringify(result), {
       headers: {

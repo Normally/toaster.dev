@@ -1,5 +1,3 @@
-const { description } = require('../../package')
-
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
@@ -97,12 +95,6 @@ module.exports = {
     editLinkText: '',
     lastUpdated: false,
     navbar: false,
-    // nav: [
-    //   {
-    //     text: 'Github',
-    //     link: 'https://v1.vuepress.vuejs.org'
-    //   }
-    // ]
     sidebar: false
   },
 

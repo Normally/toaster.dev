@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex-row holder">
-      <div class="flex-col ">
+      <div class="flex-col">
         <div class="filename">
           <div
             class="tab"

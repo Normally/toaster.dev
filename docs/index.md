@@ -2,8 +2,6 @@
 sidebar: false
 ---
 
-<!-- <img src="./toaster.png" style="display:inline-block; width:150px; vertical-align:top; float:left;margin-right:2em;"/> -->
-
 # Toaster
 
 **A free JSON placeholder API** 
@@ -14,15 +12,13 @@ Send a request to `https://api.toaster.dev` with a template schema in the body a
 
 </div>
 
-<!-- **No signup, No authentication. Bring your own data schema** -->
-
 ## Demo
 &nbsp;
 
 <code-view :code='`{
   name: "{name}",
   email: "{email}",
-  avatar: "{avatar}",
+  avatar: "{avatar}"
 }`'/>
 
 <br/>
@@ -99,6 +95,19 @@ Toaster supports multiple [localities](http://marak.github.io/faker.js/#toc9__an
     name: "{name}",
     email: "{email}"
 }`'/>
+
+<br/>
+
+---
+
+## Request methods
+
+Toaster supports both ```POST``` and  ```GET``` requests. 
+<br/> ```GET ``` requests populate all query parameters **OR** use a single ```data``` parameter with a stringified object to handle complex data.
+
+```js
+axios.get('https://api.toaster.dev', {params:{data:JSON.stringify(myDataSchema)}})
+```
 
 ## About
 

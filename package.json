@@ -12,7 +12,6 @@
     "build": "vuepress build docs"
   },
   "license": "MIT",
-  "devDependencies": {},
   "dependencies": {
     "axios": "^0.21.1",
     "js-beautify": "^1.13.13",
