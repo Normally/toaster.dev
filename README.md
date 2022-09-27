@@ -1,7 +1,5 @@
 # Toaster
 
-![Toaster](/docs/.vuepress/public/toaster.dev-social.jpg)
-
 **A free JSON placeholder API** 
 
 Send a request to `https://api.toaster.dev` with a template schema in the body and receive a populated JSON response.
